@@ -80,7 +80,7 @@ protected:
 
 };
 
-/// Some op magic
+/// Some op magic (decorators)
 
 // A fire enchant
 class Fire : public Enchant
@@ -112,7 +112,7 @@ public:
 
 };
 
-// A lightning op enchant
+// A lightning enchant
 class Lightning : public Enchant
 {
 
@@ -138,14 +138,14 @@ int main(int argc, char* argv[])
 	Weapon* excalibur = new Lightning(new Fire(new Ice(new Lightning(new Lightning(new Ice(new Fire(new Sword(12)))))))); // cheat detected o/
 
 	// Hit something
-	cout << "You hit for " << ironSword->damage() << " dmg!" << endl;
-	cout << "You hit for " << fireSword->damage() << " dmg!" << endl;
-	cout << "You hit for " << excalibur->damage() << " dmg!" << endl;
+	cout << "You hit for " << ironSword->damage() << " dmg!" << endl; // You hit for 12 dmg!
+	cout << "You hit for " << fireSword->damage() << " dmg!" << endl; // You hit for 20 dmg!
+	cout << "You hit for " << excalibur->damage() << " dmg!" << endl; // You hit for 372 dmg!
 
 	// Free memory
 	delete ironSword;
 	delete fireSword;
-	delete excalibur; // How dare you ! :x
+	delete excalibur;
 
 	return 0; // End
 }
